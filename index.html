@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rachid anarzoum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Cairo:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --accent: #4da8ff;
+      --bg-color: #f9f9f9;
+      --text-color: #1b1b1b;
+      --card-bg: #fff;
+      --header-bg: #0a192f;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="dark"] {
+      --accent: #db2a2ae2;
+      --bg-color: #0a192f;
+      --text-color: #eaeaea;
+      --card-bg: #112240;
+      --header-bg: #020c1b;
+      --shadow: rgba(255, 255, 255, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: all 0.4s ease;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: rgba(247, 31, 15, 0.941);
+      color: rgb(255, 255, 255);
+      padding: 40px 0;
+      text-align: center;
+      position: relative;
+      animation: fadeDown 1s ease forwards;
+    }
+
+    header h1 {
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+
+    .language-buttons, .theme-toggle {
+      position: absolute;
+      top: 20px;
+    }
+
+    .language-buttons {
+      left: 20px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .language-buttons button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 7px 11px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: transform 0.2s ease, background 0.3s;
+    }
+
+    .language-buttons button:hover {
+      transform: translateY(-2px);
+      background: #fa1818ce;
+    }
+
+    .theme-toggle {
+      right: 20px;
+    }
+
+    .theme-toggle button {
+      background: var(--accent);
+      border: none;
+      padding: 7px 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: #fff;
+      transition: transform 0.2s ease, background 0.3s;
+    }
+
+    .theme-toggle button:hover {
+      transform: rotate(20deg);
+      background: #3c93e6;
+    }
+
+    main {
+      width: 90%;
+      max-width: 1000px;
+      margin: 50px auto;
+      background-color: var(--card-bg);
+      padding: 40px;
+      border-radius: 14px;
+      box-shadow: 0 6px 25px var(--shadow);
+      text-align: center;
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 15px var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      margin-bottom: 45px;
+      text-align: left;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    section:nth-child(2) { animation-delay: 0.3s; }
+    section:nth-child(3) { animation-delay: 0.5s; }
+    section:nth-child(4) { animation-delay: 0.7s; }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 10px;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: rgba(247, 31, 15, 0.941);
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .contact-info a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    [lang="ar"] {
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+      text-align: right;
+    }
+
+    /* Hna Les Animations */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <header>
+    <div class="language-buttons">
+      <button onclick="setLanguage('en')">EN</button>
+      <button onclick="setLanguage('fr')">FR</button>
+      <button onclick="setLanguage('ar')">AR</button>
+    </div>
+
+    <div class="theme-toggle">
+      <button id="theme-icon">🌙</button>
+    </div>
+    <br>
+
+
+    <h1 id="name">Rachid Anarzoum</h1>
+    <p id="title">Web Developer | BTS Student at Essaouira</p>
+  </header>
+
+  <main>
+    <img src="rachid.jpg" alt="Profile" class="profile-img" />
+
+    <section>
+      <h2 id="about-title">About Me</h2>
+      <p id="about-text">
+        Hello! My name is Rachid anarzoum, I am 23 years old and currently in my 2nd year of BTS at Essaouira.
+        I am passionate about web development and always eager to learn new technologies to improve my creativity and skills.
+      </p>
+    </section>
+
+    <section>
+      <h2 id="skills-title">Skills</h2>
+      <ul id="skills-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>PHP</li>
+        <li>JavaScript</li>
+        <li>C</li>
+        <li>Python</li>
+        <li>Java</li>
+        <li>MySQL</li>
+        <li>Git & GitHub</li>
+        <li>Responsive Design</li>
+
+
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="languages-title">Languages</h2>
+      <ul id="languages-list">
+        <li>English – Excellent</li>
+        <li>French – Medium</li>
+        <li>Arabic – Native</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 id="contact-title">Contact</h2>
+      <div class="contact-info">
+        <p id="phone">Phone : <a href="tel:+212777451103">+212777451103</a></p>
+        <p id="email">Email : <a href="mailto:rachidanarzoum@gmail.com">rachidanarzoum@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Rachid anarzoum , All rights reserved <strong>by Mr nobody</strong></p>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        title: "Web Developer | BTS Student at Essaouira",
+        aboutTitle: "About Me",
+        aboutText: "Hello! My name is Rachid anarzoum, I am 23 years old and currently in my 2nd year of BTS at Essaouira. I am passionate about web development and always eager to learn new technologies to improve my creativity and skills.",
+        skillsTitle: "Skills",
+        languagesTitle: "Languages",
+        contactTitle: "Contact",
+        languagesList: ["English – Excellent", "French – Medium", "Arabic – Native"],
+      },
+      fr: {
+        title: "Développeur Web | Étudiant en 2ème année de BTS à Essaouira",
+        aboutTitle: "À propos de moi",
+        aboutText: "Bonjour ! Je m'appelle Rachid anarzoum, j'ai 23 ans et je suis en 2ème année de BTS à Essaouira. Passionné par le développement web, je cherche toujours à apprendre de nouvelles technologies pour améliorer mes compétences.",
+        skillsTitle: "Compétences",
+        languagesTitle: "Langues",
+        contactTitle: "Contact",
+        languagesList: ["Anglais – Excellent", "Français – Moyen", "Arabe – Langue maternelle"],
+      },
+      ar: {
+        title: "مطور ويب | طالب في السنة الثانية من BTS بالصويرة",
+        aboutTitle: "نبذة عني",
+        aboutText: "مرحباً! اسمي رشيـد أنـرزوم، عمري 23 سنة وأدرس حالياً في السنة الثانية من BTS في الصويرة. أنا شغوف بتطوير الويب وأسعى دائماً لتعلم تقنيات جديدة لتعزيز مهاراتي وإبداعي.",
+        skillsTitle: "المهارات",
+        languagesTitle: "اللغات",
+        contactTitle: "التواصل",
+        languagesList: ["الإنجليزية – ممتاز", "الفرنسية – متوسط", "العربية – اللغة الأم"],
+      },
+    };
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById('title').textContent = translations[lang].title;
+      document.getElementById('about-title').textContent = translations[lang].aboutTitle;
+      document.getElementById('about-text').textContent = translations[lang].aboutText;
+      document.getElementById('skills-title').textContent = translations[lang].skillsTitle;
+      document.getElementById('languages-title').textContent = translations[lang].languagesTitle;
+      document.getElementById('contact-title').textContent = translations[lang].contactTitle;
+      const list = document.getElementById('languages-list');
+      list.innerHTML = translations[lang].languagesList.map(item => <li>${item}</li>).join('');
+      if (lang === 'ar') {
+        document.body.setAttribute('lang', 'ar');
+      } else {
+        document.body.removeAttribute('lang');
+      }
+    }
+
+    const themeBtn = document.getElementById('theme-icon');
+    themeBtn.addEventListener('click', () => {
+      const currentTheme = document.body.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      document.body.setAttribute('data-theme', newTheme);
+      themeBtn.textContent = newTheme === 'light' ? '🌙' : '☀';
+    });
+  </script>
+</body>
+</html>

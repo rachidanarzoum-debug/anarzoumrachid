@@ -39,7 +39,7 @@
     }
 
     header {
-      background-color: rgba(247, 31, 15, 0.941);
+      background-color: rgba(247, 31, 15, 0.877);
       color: rgb(255, 255, 255);
       padding: 40px 0;
       text-align: center;
@@ -162,7 +162,7 @@
     footer {
       text-align: center;
       padding: 25px;
-      background-color: rgba(247, 31, 15, 0.941);
+      background-color: rgba(247, 31, 15, 0.877);
       color: #ffffff;
       font-size: 0.9rem;
     }
@@ -265,64 +265,68 @@
   </main>
 
   <footer>
-    <p>© 2025 Rachid anarzoum , All rights reserved <strong>by Mr nobody</strong></p>
+    <p>© 2025 Rachid anarzoum , All rights reserved created <strong>by Mr nobody</strong></p>
   </footer>
 
   <script>
-    const translations = {
-      en: {
-        title: "Web Developer | BTS Student at Essaouira",
-        aboutTitle: "About Me",
-        aboutText: "Hello! My name is Rachid anarzoum, I am 23 years old and currently in my 2nd year of BTS at Essaouira. I am passionate about web development and always eager to learn new technologies to improve my creativity and skills.",
-        skillsTitle: "Skills",
-        languagesTitle: "Languages",
-        contactTitle: "Contact",
-        languagesList: ["English – Excellent", "French – Medium", "Arabic – Native"],
-      },
-      fr: {
-        title: "Développeur Web | Étudiant en 2ème année de BTS à Essaouira",
-        aboutTitle: "À propos de moi",
-        aboutText: "Bonjour ! Je m'appelle Rachid anarzoum, j'ai 23 ans et je suis en 2ème année de BTS à Essaouira. Passionné par le développement web, je cherche toujours à apprendre de nouvelles technologies pour améliorer mes compétences.",
-        skillsTitle: "Compétences",
-        languagesTitle: "Langues",
-        contactTitle: "Contact",
-        languagesList: ["Anglais – Excellent", "Français – Moyen", "Arabe – Langue maternelle"],
-      },
-      ar: {
-        title: "مطور ويب | طالب في السنة الثانية من BTS بالصويرة",
-        aboutTitle: "نبذة عني",
-        aboutText: "مرحباً! اسمي رشيـد أنـرزوم، عمري 23 سنة وأدرس حالياً في السنة الثانية من BTS في الصويرة. أنا شغوف بتطوير الويب وأسعى دائماً لتعلم تقنيات جديدة لتعزيز مهاراتي وإبداعي.",
-        skillsTitle: "المهارات",
-        languagesTitle: "اللغات",
-        contactTitle: "التواصل",
-        languagesList: ["الإنجليزية – ممتاز", "الفرنسية – متوسط", "العربية – اللغة الأم"],
-      },
-    };
+  const translations = {
+    en: {
+      title: "Web Developer | BTS Student at Essaouira",
+      aboutTitle: "About Me",
+      aboutText: "Hello! My name is Rachid anarzoum, I am 23 years old and currently in my 2nd year of BTS at Essaouira. I am passionate about web development and always eager to learn new technologies to improve my creativity and skills.",
+      skillsTitle: "Skills",
+      languagesTitle: "Languages",
+      contactTitle: "Contact",
+      languagesList: ["English – Excellent", "French – Medium", "Arabic – Native"],
+    },
+    fr: {
+      title: "Développeur Web | Étudiant en 2ème année de BTS à Essaouira",
+      aboutTitle: "À propos de moi",
+      aboutText: "Bonjour ! Je m'appelle Rachid anarzoum, j'ai 23 ans et je suis en 2ème année de BTS à Essaouira. Passionné par le développement web, je cherche toujours à apprendre de nouvelles technologies pour améliorer mes compétences.",
+      skillsTitle: "Compétences",
+      languagesTitle: "Langues",
+      contactTitle: "Contact",
+      languagesList: ["Anglais – Excellent", "Français – Moyen", "Arabe – Langue maternelle"],
+    },
+    ar: {
+      title: "مطور ويب | طالب في السنة الثانية من BTS بالصويرة",
+      aboutTitle: "نبذة عني",
+      aboutText: "مرحباً! اسمي رشيد أنرزوم، عمري 23 سنة وأدرس حالياً في السنة الثانية من BTS في الصويرة. أنا شغوف بتطوير الويب وأسعى دائماً لتعلم تقنيات جديدة لتعزيز مهاراتي وإبداعي.",
+      skillsTitle: "المهارات",
+      languagesTitle: "اللغات",
+      contactTitle: "التواصل",
+      languagesList: ["الإنجليزية – ممتاز", "الفرنسية – متوسط", "العربية – اللغة الأم"],
+    },
+  };
 
-    function setLanguage(lang) {
-      document.documentElement.lang = lang;
-      document.getElementById('title').textContent = translations[lang].title;
-      document.getElementById('about-title').textContent = translations[lang].aboutTitle;
-      document.getElementById('about-text').textContent = translations[lang].aboutText;
-      document.getElementById('skills-title').textContent = translations[lang].skillsTitle;
-      document.getElementById('languages-title').textContent = translations[lang].languagesTitle;
-      document.getElementById('contact-title').textContent = translations[lang].contactTitle;
-      const list = document.getElementById('languages-list');
-      list.innerHTML = translations[lang].languagesList.map(item => <li>${item}</li>).join('');
-      if (lang === 'ar') {
-        document.body.setAttribute('lang', 'ar');
-      } else {
-        document.body.removeAttribute('lang');
-      }
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.getElementById('title').textContent = translations[lang].title;
+    document.getElementById('about-title').textContent = translations[lang].aboutTitle;
+    document.getElementById('about-text').textContent = translations[lang].aboutText;
+    document.getElementById('skills-title').textContent = translations[lang].skillsTitle;
+    document.getElementById('languages-title').textContent = translations[lang].languagesTitle;
+    document.getElementById('contact-title').textContent = translations[lang].contactTitle;
+
+    const list = document.getElementById('languages-list');
+    list.innerHTML = translations[lang].languagesList.map(item => `<li>${item}</li>`).join('');
+
+    if (lang === 'ar') {
+      document.body.setAttribute('lang', 'ar');
+    } else {
+      document.body.removeAttribute('lang');
     }
+  }
 
-    const themeBtn = document.getElementById('theme-icon');
-    themeBtn.addEventListener('click', () => {
-      const currentTheme = document.body.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      document.body.setAttribute('data-theme', newTheme);
-      themeBtn.textContent = newTheme === 'light' ? '🌙' : '☀';
-    });
-  </script>
+  const themeBtn = document.getElementById('theme-icon');
+  themeBtn.addEventListener('click', () => {
+    const currentTheme = document.body.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.body.setAttribute('data-theme', newTheme);
+    themeBtn.textContent = newTheme === 'light' ? '☀️' : '🌙';
+  });
+</script>
+
+ 
 </body>
 </html>
